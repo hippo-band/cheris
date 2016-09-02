@@ -23,7 +23,7 @@ A configuration center used eureka
                                                      --不会有什么问题，server和client之间会试着重连，默认每次30秒，重连三次没有回应
                                                      -- server端就会把服务踢掉，但在单机情况下，会保留服务的数据模式，所以调用会出现问题,
                                                      --这时将这个属性设为false,server端将不会保留服务
-   *  eureka.instance.preferIpAddress = true/false  --设为true,就会以IP的形式出现,不然会以
+   *  eureka.instance.preferIpAddress = true/false  --设为true,就会地址以IP的形式出现,不然会以hostname的形式出现
    
    以上的就是cheris的最常用的配置字段，如果还想了解详细配置，详细阅读EurekaClientConfigBean和EurekaInstanceConfigBean这两个类
    

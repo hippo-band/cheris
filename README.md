@@ -4,7 +4,7 @@ A configuration center used eureka
 
 简介：
    cheris是服务治理框架Eureka的server端，cheris搭配hippo-serviceGoven项目运行，hippo-serviceGoven向cheris进行服务的注册或者
-   已注册服务的这侧地址和端口号进行服务调用
+   拿到已注册服务的注册地址和端口号进行服务调用
    
 配置：
    所有的配置都放在application.properties,以下是主要的配置字段，配置形式已key-value的形式
@@ -13,7 +13,7 @@ A configuration center used eureka
    
    * server.port= your port   ---cheris绑定的端口号
    
-   * eureka.client.serviceUrl.defaultZone = http://your host:your port/eureka  ---cheris对外提供的服务注册地址
+   * eureka.client.serviceUrl.defaultZone = http://your host:your port/eureka/  ---cheris对外提供的服务注册地址
    
    * eureka.client.fetch-registry = true/false  -- 是否拉取eureka服务器注册信息(如果是server 一般都为false)
    
@@ -24,8 +24,12 @@ A configuration center used eureka
                                                      -- server端就会把服务踢掉，但在单机情况下，会保留服务的数据模式，所以调用会出现问题,
                                                      --这时将这个属性设为false,server端将不会保留服务
    *  eureka.instance.preferIpAddress = true/false  --设为true,就会地址以IP的形式出现,不然会以hostname的形式出现
+集群配置:
    
-   以上的就是cheris的最常用的配置字段，如果还想了解详细配置，详细阅读EurekaClientConfigBean和EurekaInstanceConfigBean这两个类
+    大都与上述配置相同，不过属性eureka.client.registerWithEureka需要设为true(默认为true)
+    eureka.client.serviceUrl.defaultZone的集群地址以","分割
+   
+以上的就是cheris的最常用的配置字段，如果还想了解详细配置，详细阅读EurekaClientConfigBean和EurekaInstanceConfigBean这两个类
    
 用法：
     执行EurekaServerApplication类的main方法就OK。同时cheris还会提供一个服务注册列表的可视化界面，可以查看服务注册的详细新，

@@ -1,4 +1,4 @@
-package cloud.igoldenbeta.mercurius.cheris;
+package com.github.hippo.cheris;
 
 import java.io.IOException;
 
